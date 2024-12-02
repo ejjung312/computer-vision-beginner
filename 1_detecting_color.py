@@ -4,7 +4,7 @@ from PIL import Image
 from util import get_limits
 
 # 동영상 파일 경로 설정
-video_path = "video1.mp4"
+video_path = "video2.mp4"
 
 # 동영상 파일 열기
 cap = cv2.VideoCapture(video_path)
@@ -16,10 +16,6 @@ else:
     while True:
         # 프레임 읽기
         ret, frame = cap.read()
-        
-        # if not ret:
-        #     print("동영상 끝.")
-        #     break
         
         hsvImage = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -33,7 +29,6 @@ else:
 
         if bbox is not None:
             x1, y1, x2, y2 = bbox
-
             frame = cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 5)
         
         # 프레임을 화면에 표시
